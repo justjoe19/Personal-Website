@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,66 +13,79 @@
     <!-- For Android devices -->
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
     <!-- Styling -->
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
-<body class="body bg-secondary-subtle m-5">
+<body class="body bg-light m-5">
+
     <!-- Responsive Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Joe Hollenbach</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-md bg-light shadow-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand text-success fw-bold" href="#home">Joe Hollenbach</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#resume">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active" aria-current="page" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active" aria-current="page" href="#experience">Experience</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active" aria-current="page" href="#projects">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active" aria-current="page" href="#resume">Resume</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active" aria-current="page" href="#contact">Contact</a>
+                  </li>                  
                 </ul>
-            </div>
-        </div>
+            </div> 
+        </div> 
     </nav>
 
     <main>
-        <!-- Profile photo and Intro message -->
-        <div class="container text-center mt-5">
-            <div class="row justify-content-center align-items-center">
+
+        <!-- Home Section -->
+        <div class="container" section id="home">
+            <div class="row min-vh-100 align-items-center align-content-center">
                 <div class="col-md-6">
-                    <img src="assets/about.png" alt="photo of me" class="img-fluid rounded-circle mb-4 mt-5">
-                    <h2>Hello There! I'm</h2>
-                    <h1 class="display-5 text-success">Joe Hollenbach</h1>
-                    <p class="mt-4">A Software Engineer passionate about creating interactive applications and engaging
-                        user experiences.</p>
-                    <div class="mt-4">
-                        <!-- Social Icons -->
-                        <a href="https://www.linkedin.com/in/joe-hollenbach/" target="_blank"><img src="assets/linkedin.png" alt="link to LinkedIn" style="margin-right: 3%;"></a>
-                        <a href="https://github.com/justjoe19" target="_blank"><img src="assets/github.png" alt="link to GitHub" style="margin-right: 3%;"></a>
-                        <a href="#contact" target="_blank"><img src="assets/email.png" alt="link to the Contact Me section"></a>
+                    <div class="home-img text-center">
+                        <img src="assets/about.png" class="home-img" alt="profile 
+                        image">
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-first">
+                    <div class="home-text">
+                        <p class="text-muted mb-2">Hello, I'm</p>
+                        <h2 class="display-5 text-success fw-bold">Joe Hollenbach</h2>
+                        <p class="text-muted mt-2">A Software Engineer passionate about 
+                            creating interactive applications and engaging user 
+                            experiences.</p>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="home-icons">
+                        <a href="https://www.linkedin.com/in/joe-hollenbach/"  
+                        target="_blank"><i class="fa-brands fa-linkedin fa-2xl" style="color: blue;"></i></a>
+                        <a href="https://github.com/justjoe19" target="_blank"><i 
+                            class="fa-brands fa-square-github fa-2xl" style="color: black;"></i></a>
+                        <a href="#contact" target="_blank"><i class="fa-solid fa-envelope fa-2xl" style="color: gray;"></i></a>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- About Me Section -->
-        <div class="container mt-5" section id="about">
+        <div class="container" section id="about">
             <h2>About Me</h2>
             <div class="row">
-                <div class="col-md-3 mt-3">
-                    <img src="assets/id-card.png" alt="icon of an ID card" class="img-fluid">
+                <div class="col-md-3 m-2">
+                    <i class="fa-solid fa-address-card fa-5x"></i>
                 </div>
                 <div class="col-md-6">
                     <p>Welcome to my portfolio site! &nbsp;I'm Joe Hollenbach, a software engineer based in Northern Indiana. &nbsp;I am a
@@ -97,9 +109,8 @@
         <div class="container mt-5" section id="experience">
             <h2>Experience</h2>
             <div class="row">
-                <div class="col-md-3 mt-3">
-                    <img src="assets/mortarboard.png" alt="icond of a graduate cap"
-                        class="img-fluid">
+                <div class="col-md-3 m-2">
+                    <i class="fa-solid fa-graduation-cap fa-5x"></i>
                 </div>
                 <div class="col-md-6">
                     <p>I have earned an Associate of Applied Science degree in Software Development from Ivy Tech Community
@@ -118,8 +129,8 @@
         <div class="container mt-5" section id="projects">
             <h2>Projects</h2>
             <div class="row">
-                <div class="col-md-3 mt-3">
-                    <img src="assets/cms.png" alt="icon of a computer monitor" class="img-fluid">
+                <div class="col-md-3 mt-3 mb-2">
+                    <i class="fa-solid fa-code fa-5x"></i>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
@@ -175,9 +186,8 @@
         <div class="container mt-5" section id="resume">
             <h2>Resume</h2>
             <div class="row">
-                <div class="col-md-3 mt-3">
-                    <img src="assets/cv.png" alt="icond of a resume" 
-                        class="img-fluid">
+                <div class="col-md-3 m-2">
+                    <i class="fa-solid fa-file fa-5x"></i>
                 </div>
                 <div class="col-md-6">
             <p>Download a PDF copy of my resume by clicking the button below. &nbsp;Since this is a public website, my
@@ -194,8 +204,7 @@
             <h2>Contact Me</h2>
             <div class="row">
                 <div class="col-md-3 mt-3">
-                    <img src="assets/email2.png" alt="icon of an e-mail message" 
-                        class="img-fluid">
+                    <i class="fa-solid fa-inbox fa-5x"></i>
                 </div>
                 <div class="col-md-6">
                     <form name="contact" netlify data-netlify-honeypot="bot-field">
@@ -219,15 +228,19 @@
         </div>
     </main>
 
-    <footer class="footer mt-5 mb-5 align-items-center text-center">
-        <a href="https://www.flaticon.com/free-icons/education" target="_blank" title="education icons">Icons created by Freepik - Flaticon</a>
+    <!-- Footer -->
+    <footer class="footer mt-5 align-items-center text-center">
+        <p>&copy; Joe Hollenbach</p>
+        <p>Icons created by <a href="https://www.flaticon.com/free-icons/education" target="_blank" title="education icons">Freepik - Flaticon</a></p>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c7feced659.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 
