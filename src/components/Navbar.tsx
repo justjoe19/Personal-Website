@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,14 +11,17 @@ export default function Navbar() {
     const path = window.location.pathname;
     const isBlog = path.startsWith('/blog');
     const isTool = path.startsWith('/review-responder');
+    // window.location isn't available during Astro's SSR pass, so this route
+    // check can only run post-hydration, not during the initial render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsBlogPage(isBlog);
     setIsToolPage(isTool);
 
     // Only track sections if we are on the homepage
     if (!isBlog && !isTool) {
       const sections = document.querySelectorAll('section[id]');
-      
-      const options = {
+
+      const options: IntersectionObserverInit = {
         root: null,
         rootMargin: '-20% 0px -20% 0px',
         threshold: 0.1
@@ -53,8 +56,8 @@ export default function Navbar() {
         </a>
 
         {/* Hamburger Menu Toggle */}
-        <button 
-          className="flex flex-col gap-[6px] bg-transparent border-none cursor-pointer z-[3000] md:hidden" 
+        <button
+          className="flex flex-col gap-[6px] bg-transparent border-none cursor-pointer z-[3000] md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Navigation"
         >
@@ -69,9 +72,9 @@ export default function Navbar() {
           ${isOpen ? 'h-auto py-4 border-b border-brand-border' : 'h-0 md:h-auto md:py-0'}
         `}>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[100ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
-            <a 
-              href="/#hero" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+            <a
+              href="/#hero"
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'hero' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
               onClick={handleNavLinkClick}
             >
               Home
@@ -96,9 +99,9 @@ export default function Navbar() {
             </a>
           </li>
           <li className={`w-full text-center transition-all duration-300 md:opacity-100 md:translate-y-0 ${isOpen ? 'opacity-100 translate-y-0 delay-[250ms]' : 'opacity-0 -translate-y-[10px] md:translate-y-0'}`}>
-            <a 
-              href="/#about" 
-              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`} 
+            <a
+              href="/#about"
+              className={`block py-[0.6rem] px-4 text-[0.85rem] font-medium transition-all duration-300 md:inline md:p-0 ${!isBlogPage && !isToolPage && activeSection === 'about' ? 'text-brand-blue underline underline-offset-4' : 'text-brand-dim hover:text-brand-blue hover:underline hover:underline-offset-4'}`}
               onClick={handleNavLinkClick}
             >
               About
@@ -135,9 +138,9 @@ export default function Navbar() {
             <a
               href="/#contact"
               className={`
-                block mx-auto my-3 w-fit py-2 px-4 rounded border border-brand-blue text-[0.85rem] font-medium transition-all duration-300 md:inline md:m-0 
+                block mx-auto my-3 w-fit py-2 px-4 rounded border border-brand-blue text-[0.85rem] font-medium transition-all duration-300 md:inline md:m-0
                 ${!isBlogPage && !isToolPage && activeSection === 'contact' ? 'bg-brand-blue text-brand-bg shadow-[0_0_15px_rgba(121,192,255,0.4)]' : 'text-brand-blue hover:bg-brand-blue hover:text-brand-bg hover:shadow-[0_0_15px_rgba(121,192,255,0.4)]'}
-              `} 
+              `}
               onClick={handleNavLinkClick}
             >
               Contact

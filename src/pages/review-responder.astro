@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
-import ReviewResponder from '../components/ReviewResponder';
+import ReviewResponderTool from '../components/ReviewResponder';
 import Footer from '../components/Footer';
 
 const breadcrumbSchema = JSON.stringify({
@@ -104,7 +104,7 @@ const benefits = [
 				</p>
 			</div>
 
-			<ReviewResponder client:load />
+			<ReviewResponderTool client:load />
 
 			<section id="how-it-works" class="max-w-[1000px] mx-auto px-6 py-16 border-t border-brand-border/50">
 				<div class="flex items-center gap-3 mb-12">
@@ -114,7 +114,7 @@ const benefits = [
 				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 					{steps.map(step => (
 						<div class="glass-card rounded-xl p-6">
-							<span class="text-brand-blue font-mono text-sm font-bold opacity-60">{step.n}</span>
+							<span class="text-brand-blue font-mono text-sm font-bold opacity-80">{step.n}</span>
 							<h3 class="text-white font-bold mt-2 mb-2">{step.title}</h3>
 							<p class="text-brand-dim text-sm leading-relaxed">{step.desc}</p>
 						</div>

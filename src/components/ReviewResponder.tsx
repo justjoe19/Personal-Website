@@ -1,17 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 
-const BUSINESS_TYPES = ['Restaurant', 'Salon/Spa', 'Contractor', 'Retail', 'Medical/Dental', 'Other'];
-const TONES = ['Professional', 'Friendly', 'Apologetic', 'Enthusiastic'];
+const BUSINESS_TYPES = ['Restaurant', 'Salon/Spa', 'Contractor', 'Retail', 'Medical/Dental', 'Other'] as const;
+const TONES = ['Professional', 'Friendly', 'Apologetic', 'Enthusiastic'] as const;
 const DAILY_LIMIT = 5;
 const USAGE_KEY = 'rr_usage';
 
-function todayUTC() {
+type BusinessType = (typeof BUSINESS_TYPES)[number];
+type Tone = (typeof TONES)[number];
+
+interface UsageRecord {
+  date: string;
+  count: number;
+}
+
+interface GenerateResponsePayload {
+  response?: string;
+  error?: string;
+}
+
+function todayUTC(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-function readUsage() {
+function readUsage(): number {
   try {
-    const raw = JSON.parse(localStorage.getItem(USAGE_KEY));
+    const raw = JSON.parse(localStorage.getItem(USAGE_KEY) ?? 'null') as UsageRecord | null;
     if (raw && raw.date === todayUTC()) return raw.count;
   } catch {
     // ignore malformed/missing localStorage data
@@ -19,15 +32,15 @@ function readUsage() {
   return 0;
 }
 
-function writeUsage(count) {
+function writeUsage(count: number) {
   localStorage.setItem(USAGE_KEY, JSON.stringify({ date: todayUTC(), count }));
 }
 
 export default function ReviewResponder() {
   const [review, setReview] = useState('');
   const [businessName, setBusinessName] = useState('');
-  const [businessType, setBusinessType] = useState(BUSINESS_TYPES[0]);
-  const [tone, setTone] = useState(TONES[0]);
+  const [businessType, setBusinessType] = useState<BusinessType>(BUSINESS_TYPES[0]);
+  const [tone, setTone] = useState<Tone>(TONES[0]);
   const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -43,7 +56,7 @@ export default function ReviewResponder() {
     if (count >= DAILY_LIMIT) setLimitReached(true);
   }, []);
 
-  const handleGenerate = async (e) => {
+  const handleGenerate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!review.trim() || !businessName.trim()) return;
 
@@ -59,7 +72,7 @@ export default function ReviewResponder() {
         body: JSON.stringify({ review, businessName, businessType, tone, rating }),
       });
 
-      const data = await res.json();
+      const data: GenerateResponsePayload = await res.json();
 
       if (res.status === 429) {
         setLimitReached(true);
@@ -74,7 +87,7 @@ export default function ReviewResponder() {
         return;
       }
 
-      setResult(data.response);
+      setResult(data.response ?? '');
       const newCount = Math.min(usedToday + 1, DAILY_LIMIT);
       setUsedToday(newCount);
       writeUsage(newCount);
@@ -134,7 +147,7 @@ export default function ReviewResponder() {
             <select
               id="businessType"
               value={businessType}
-              onChange={(e) => setBusinessType(e.target.value)}
+              onChange={(e) => setBusinessType(e.target.value as BusinessType)}
               className="w-full bg-brand-bg border border-brand-border rounded-lg p-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
             >
               {BUSINESS_TYPES.map((type) => (
@@ -150,7 +163,7 @@ export default function ReviewResponder() {
             <select
               id="tone"
               value={tone}
-              onChange={(e) => setTone(e.target.value)}
+              onChange={(e) => setTone(e.target.value as Tone)}
               className="w-full bg-brand-bg border border-brand-border rounded-lg p-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-colors"
             >
               {TONES.map((t) => (
@@ -216,7 +229,7 @@ export default function ReviewResponder() {
         </div>
       )}
 
-      <p className="mt-10 text-center text-brand-dim/60 text-xs font-mono">Powered by Gemini AI</p>
+      <p className="mt-10 text-center text-brand-dim/80 text-xs font-mono">Powered by Gemini AI</p>
     </div>
   );
 }

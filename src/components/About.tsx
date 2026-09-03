@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function About() {
   return (
     <section id="about" className="py-16 max-w-[1200px] mx-auto px-6">
@@ -7,17 +5,17 @@ export default function About() {
         <span className="h-[1px] w-[35px] bg-brand-blue"></span>
         <h2 className="text-2xl font-bold text-white tracking-tight">The Engineer Behind Michiana.dev</h2>
       </div>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-x-16 gap-y-10 lg:gap-y-12 items-start text-center lg:text-left">
         {/* Row 1, Col 1: Photo */}
         <div className="relative group max-w-[280px] lg:max-w-[320px] mx-auto lg:mx-0 pt-2">
           {/* Subtle Glow behind photo */}
           <div className="absolute inset-0 bg-brand-blue/20 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          
+
           <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 transition-transform duration-500 group-hover:scale-[1.02]">
-             <img 
-               src="/assets/photo.webp" 
-               alt="Joe Hollenbach - Software Engineer in Mishawaka, IN" 
+             <img
+               src="/assets/photo.webp"
+               alt="Joe Hollenbach - Software Engineer in Mishawaka, IN"
                className="w-full h-full object-cover"
                loading="lazy"
                width="320"
@@ -59,8 +57,8 @@ export default function About() {
             ))}
           </ul>
 
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.2)] hover:shadow-[0_0_25px_rgba(121,192,255,0.4)] overflow-hidden"
           >
             <span className="relative z-10 text-center">Schedule a Free Consultation</span>

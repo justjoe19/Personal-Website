@@ -43,7 +43,14 @@ const faqSchema = JSON.stringify({
   }))
 });
 
-const services = [
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: 'code' | 'zap' | 'settings' | 'cpu';
+}
+
+const services: Service[] = [
   {
     id: "01",
     title: "Custom Software & SaaS Development",
@@ -72,12 +79,20 @@ const services = [
 
 const projects = [
   {
+    id: "p4",
+    name: "JH Claims Solution",
+    tech: "Multi-State Local SEO / Trust-Driven Design",
+    desc: "A credibility-first platform for a multi-state public adjusting firm that goes to bat for property owners against their own insurance companies. Built around transparent case-result showcases and a clear no-recovery-no-fee value proposition, it turns a high-stakes, trust-sensitive decision into a straightforward next step for homeowners fighting denied or underpaid claims.",
+    image: "/assets/jhclaims.webp",
+    link: "https://jhclaim.com"
+  },
+  {
     id: "p1",
     name: "TriStorm Restoration",
     tech: "Performance SEO / Responsive Architecture",
     desc: "A specialized service platform engineered to capture high-intent local restoration traffic. Features a streamlined conversion path for emergency inquiries and high-resolution asset management to showcase professional project outcomes.",
-    image: "/assets/tristorm.webp", 
-    link: "https://tristormrestoration.com" 
+    image: "/assets/tristorm.webp",
+    link: "https://tristormrestoration.com"
   },
   {
     id: "p2",
@@ -91,7 +106,7 @@ const projects = [
     id: "p3",
     name: "HSC Portal",
     tech: "Full-Stack Architecture / Secure Role-Based Access",
-    desc: "A full-stack healthcare appointment management platform built with Java Spring Boot and React. Features stateless JWT authentication, role-based portals for patients, doctors, and administrators, and a fully responsive interface engineered for secure, reliable scheduling.",
+    desc: "A full-stack healthcare appointment management platform built with Java Spring Boot and React — the kind of custom software that replaces manual scheduling and phone tag with secure, self-service portals for patients, doctors, and administrators. It's the same full-stack engineering — stateless JWT authentication, role-based access, a fully responsive interface — I bring to custom SaaS and internal tools for growing businesses.",
     image: "/assets/HSC-Portal.webp",
     link: "https://github.com/justjoe19/HSC_Portal"
   }
@@ -207,7 +222,7 @@ const projects = [
 								</div>
 							</div>
 							<div class="mt-8 pt-8 border-t border-white/5 text-center">
-								<p class="text-[10px] font-mono text-brand-dim leading-relaxed uppercase tracking-[0.2em] opacity-60">
+								<p class="text-[10px] font-mono text-brand-dim leading-relaxed uppercase tracking-[0.2em]">
 									Verified Lighthouse Metrics
 								</p>
 							</div>

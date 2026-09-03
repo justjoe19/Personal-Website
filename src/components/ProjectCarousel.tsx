@@ -1,6 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-export default function ProjectCarousel({ projects }) {
+export interface Project {
+  id: string;
+  name: string;
+  tech: string;
+  desc: string;
+  image: string;
+  link: string;
+}
+
+export interface ProjectCarouselProps {
+  projects: Project[];
+}
+
+export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -29,10 +42,10 @@ export default function ProjectCarousel({ projects }) {
           >
             <div className="flex flex-col">
               <div className="relative w-full aspect-video overflow-hidden border-b border-brand-border group">
-                <img 
-                  src={project.image} 
-                  alt={`${project.name} - Web Development Project by Michiana.dev`} 
-                  className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.03]" 
+                <img
+                  src={project.image}
+                  alt={`${project.name} - Web Development Project by Michiana.dev`}
+                  className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.03]"
                   loading="lazy"
                   width="900"
                   height="506"
@@ -57,16 +70,16 @@ export default function ProjectCarousel({ projects }) {
 
       {/* Navigation Arrows - Centered on Image Area */}
       <div className="absolute top-0 left-0 w-full aspect-video pointer-events-none z-20">
-        <button 
-          className="absolute top-1/2 left-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95" 
-          onClick={prevSlide} 
+        <button
+          className="absolute top-1/2 left-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95"
+          onClick={prevSlide}
           aria-label="Previous Slide"
         >
           &#10094;
         </button>
-        <button 
-          className="absolute top-1/2 right-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95" 
-          onClick={nextSlide} 
+        <button
+          className="absolute top-1/2 right-4 -translate-y-1/2 text-white/40 text-4xl cursor-pointer pointer-events-auto flex items-center justify-center transition-all duration-300 hover:text-brand-blue hover:scale-110 active:scale-95"
+          onClick={nextSlide}
           aria-label="Next Slide"
         >
           &#10095;

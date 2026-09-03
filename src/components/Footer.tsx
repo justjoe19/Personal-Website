@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Footer() {
   return (
     <footer className="py-[60px] pb-[30px] bg-brand-bg border-t border-brand-border w-full">
@@ -16,7 +14,7 @@ export default function Footer() {
           <a href="/#contact" className="text-brand-dim text-sm hover:text-brand-blue transition-colors duration-200">Contact</a>
         </nav>
       </div>
-      
+
       <div className="mt-12 pt-8 border-t border-brand-border text-center font-main text-[0.8rem] text-brand-dim">
         <div className="max-w-[1200px] mx-auto px-6">
           <p>© {new Date().getFullYear()} Joe Hollenbach | Software Engineer</p>

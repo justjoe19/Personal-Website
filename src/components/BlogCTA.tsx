@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function BlogCTA() {
   return (
     <section className="py-20 mt-20 border-t border-brand-border">
@@ -15,10 +13,10 @@ export default function BlogCTA() {
           <p className="text-brand-dim text-lg mb-10 leading-relaxed">
             I specialize in high-performance web engineering for local businesses in Northern Indiana and Southwest Michigan. Let's discuss your next project.
           </p>
-          
+
           <div className="flex justify-center">
-            <a 
-              href="/#contact" 
+            <a
+              href="/#contact"
               className="group relative w-full max-w-[280px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
             >
               <span className="relative z-10">Schedule a Consultation</span>

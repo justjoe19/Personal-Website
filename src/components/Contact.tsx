@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.currentTarget;
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString(),
+      body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
     })
       .then(() => setSubmitted(true))
       .catch((error) => alert(error));
@@ -73,8 +73,8 @@ export default function Contact() {
               <h3 className="text-white mb-4 text-[1.75rem] font-bold tracking-tight">Message sent!</h3>
               <p className="text-brand-dim mb-[30px] max-w-[300px]">Thank you for reaching out. I'll review your inquiry and get back to you within 24-48 hours.</p>
               <div className="flex justify-center w-full">
-                <button 
-                  onClick={() => setSubmitted(false)} 
+                <button
+                  onClick={() => setSubmitted(false)}
                   className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
                 >
                   <span className="relative z-10">Send another message</span>
@@ -85,7 +85,7 @@ export default function Contact() {
           ) : (
             <form name="contact" method="POST" onSubmit={handleSubmit} className="flex flex-col h-full">
               <input type="hidden" name="form-name" value="contact" />
-              
+
               <div className="mb-[0.8rem]">
                 <label htmlFor="name" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Name</label>
                 <input type="text" name="name" id="name" placeholder="Your Name" required className="w-full p-4 bg-brand-bg border border-white/20 text-white rounded-lg text-[0.95rem] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]" />
@@ -103,12 +103,12 @@ export default function Contact() {
 
               <div className="flex flex-col flex-grow mb-8">
                 <label htmlFor="message" className="block font-main text-[0.75rem] text-brand-blue mb-[0.4rem] uppercase tracking-[0.2em] font-bold">Message</label>
-                <textarea name="message" id="message" rows="4" placeholder="Project Details" required className="w-full p-4 bg-brand-bg border border-brand-border text-white rounded-lg text-[0.95rem] flex-grow min-h-[120px] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]"></textarea>
+                <textarea name="message" id="message" rows={4} placeholder="Project Details" required className="w-full p-4 bg-brand-bg border border-brand-border text-white rounded-lg text-[0.95rem] flex-grow min-h-[120px] focus:outline-none focus:border-brand-blue focus:shadow-[0_0_15px_rgba(121,192,255,0.2)]"></textarea>
               </div>
 
               <div className="flex justify-center w-full">
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
                 >
                   <span className="relative z-10">Send Message</span>

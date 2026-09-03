@@ -1,4 +1,12 @@
-export default function ServiceCard({ id, title, description, icon, iconType }) {
+export interface ServiceCardProps {
+  id?: string;
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+  iconType?: 'cpu' | 'code' | 'monitor' | 'zap' | 'settings';
+}
+
+export default function ServiceCard({ id, title, description, icon, iconType }: ServiceCardProps) {
   const renderIcon = () => {
     if (icon) return icon;
 

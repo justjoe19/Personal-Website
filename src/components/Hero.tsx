@@ -14,10 +14,10 @@ export default function Hero() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-blue/5 rounded-full blur-[100px]"></div>
 
         {/* Hero Image Overlay (Optimized for LCP) */}
-        <img 
-          src="/assets/hero.webp" 
-          alt="" 
-          fetchpriority="high"
+        <img
+          src="/assets/hero.webp"
+          alt=""
+          fetchPriority="high"
           loading="eager"
           className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity brightness-125 pointer-events-none"
         />
@@ -46,18 +46,18 @@ export default function Hero() {
           <p className="text-[clamp(1.1rem,2vw,1.25rem)] text-brand-dim max-w-[650px] mx-auto leading-relaxed mb-10 font-medium">
             From custom SaaS applications to search-optimized websites, I build high-performance digital products for Michiana businesses and clients nationwide.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-brand-blue text-brand-bg py-4 rounded-lg font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(121,192,255,0.3)] hover:shadow-[0_0_30px_rgba(121,192,255,0.5)] overflow-hidden"
             >
               <span className="relative z-10">Get a Free Quote</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform group-hover:translate-y-0"></div>
-            </a>   
+            </a>
 
-            <a 
-              href="#portfolio" 
+            <a
+              href="#portfolio"
               className="group relative w-full max-w-[260px] sm:w-[260px] flex items-center justify-center bg-white/5 border border-white/10 text-white py-4 rounded-lg font-bold text-base transition-all duration-300 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] overflow-hidden"
             >
               <span className="relative z-10">View Recent Projects</span>

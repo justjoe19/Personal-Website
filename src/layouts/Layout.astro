@@ -160,23 +160,30 @@ const socialImageURL = new URL(image, Astro.site);
 		</form>
 
 		<script>
-			import netlifyIdentity from 'netlify-identity-widget';
+			// Only fetch the identity widget bundle where it's actually needed:
+			// the admin CMS, or a magic-link redirect carrying an invite/recovery token.
+			const path = window.location.pathname;
+			const hash = window.location.hash;
+			const needsIdentity = path.startsWith('/admin') || hash.includes('invite_token') || hash.includes('recovery_token');
 
-			// Initialize Netlify Identity
-			netlifyIdentity.init();
+			if (needsIdentity) {
+				import('netlify-identity-widget').then(({ default: netlifyIdentity }) => {
+					netlifyIdentity.init();
 
-			// Handle login and redirects
-			netlifyIdentity.on('login', () => {
-				document.location.href = "/admin/";
-			});
+					// Handle login and redirects
+					netlifyIdentity.on('login', () => {
+						document.location.href = "/admin/";
+					});
 
-			// If the URL has an invite or recovery token, force the widget to open
-			if (window.location.hash.includes("invite_token") || window.location.hash.includes("recovery_token")) {
-				netlifyIdentity.open();
+					// If the URL has an invite or recovery token, force the widget to open
+					if (hash.includes("invite_token") || hash.includes("recovery_token")) {
+						netlifyIdentity.open();
+					}
+
+					// Make it available globally for the admin page if needed
+					(window as any).netlifyIdentity = netlifyIdentity;
+				});
 			}
-
-			// Make it available globally for the admin page if needed
-			(window as any).netlifyIdentity = netlifyIdentity;
 		</script>
 	</body>
 </html>
