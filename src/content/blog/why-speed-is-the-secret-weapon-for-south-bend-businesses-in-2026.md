@@ -7,7 +7,7 @@ description: Performance is a ranking factor. Discover how custom React
 heroImage: /assets/gemini_generated_image_2xp3hk2xp3hk2xp3-2.webp
 heroImageAlt: A laptop displaying a perfect 100 Google Lighthouse Performance score next to a "Core Web Vitals Optimized" graphic with an upward growth arrow
 ---
-### The 2-Second Rule: Why Performance is the New SEO
+## The 2-Second Rule: Why Performance is the New SEO
 
 In the Michiana region—from the tech hubs of South Bend to the small business districts in Mishawaka—business owners are all asking the same question: *"How do I get to the first page of Google?"*
 
@@ -17,7 +17,7 @@ Here is why custom-built websites are the "unfair advantage" for local businesse
 
 
 
-### 1. Stripping the "Digital Bloat"
+## 1. Stripping the "Digital Bloat"
 
 Most local sites are built on generic templates that come loaded with hundreds of features the business will never use. This "bloat" acts like a weight on your SEO.
 
@@ -28,7 +28,7 @@ At Michiana Dev, we take a different approach. Because we build with a custom 
 
 
 
-### 2. Mobile-First for the Michiana Workforce
+## 2. Mobile-First for the Michiana Workforce
 
 With over 80% of local searches in Indiana now happening on mobile devices, a "responsive" site isn't enough. It has to be Mobile-First.
 
@@ -36,7 +36,7 @@ Custom builds allow us to optimize specifically for the "thumb-friendly" experie
 
 
 
-### 3. Future-Proofing for AI Search (GEO)
+## 3. Future-Proofing for AI Search (GEO)
 
 2026 is the year of Generative Engine Optimization. AI search engines look for structured, clean data to provide answers to users. Generic site builders often "bury" your important business data in messy code.
 
@@ -48,7 +48,7 @@ When we build a site from scratch, we use Semantic HTML and structured data sc
 
 
 
-### The Bottom Line
+## The Bottom Line
 
 Your website shouldn't just be an expense; it should be a performance-driven asset. If your current site feels sluggish or looks like every other template in town, you are leaving money on the table.
 
